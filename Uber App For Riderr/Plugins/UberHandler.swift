@@ -7,3 +7,65 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
+protocol UberController: class {
+    func canCallUber(delegateCalled: Bool)
+}
+
+class UberHandler {
+    private static let _instance = UberHandler()
+    
+    weak var delegate: UberController?
+    
+    var rider = ""
+    var driver = ""
+    var rider_id = ""
+    
+    static var Instance: UberHandler {
+        return _instance
+    }
+    
+    func observeMessagesForRider() {
+        
+        //rider requested Uber
+        DBProvider.Instance.requestRef.observe(DataEventType.childAdded) {(snapshot: DataSnapshot) in
+            
+            if let data = snapshot.value as? NSDictionary {
+                if let name = data[Constants.NAME] as? String {
+                    if name == self.rider {
+                        self.rider_id = snapshot.key
+                        self.delegate?.canCallUber(delegateCalled: true)
+                        print("The value is \(self.rider_id)")
+                    }
+                }
+            }
+        }
+        //canceled Uber
+        DBProvider.Instance.requestRef.observe(DataEventType.childRemoved) {(snapshot: DataSnapshot) in
+            
+            if let data = snapshot.value as? NSDictionary {
+                if let name = data[Constants.NAME] as? String {
+                    if name == self.rider {
+//                        self.rider_id = snapshot.key
+                        self.delegate?.canCallUber(delegateCalled: false)
+                    }
+                }
+            }
+        }
+    }
+    
+    //request Uber
+    func requestUber(latitude: Double,
+                     longitude: Double) {
+        let data: Dictionary<String, Any> = [Constants.NAME: rider,
+                                             Constants.LATITUDE: latitude,
+                                             Constants.LONGITUDE: longitude]
+        DBProvider.Instance.requestRef.childByAutoId().setValue(data)
+    }
+    
+    func cancelUber() {
+        DBProvider.Instance.requestRef.child(rider_id).removeValue()
+    }
+    
+}

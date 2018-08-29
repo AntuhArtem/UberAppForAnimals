@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83C1ABC42134154900E1026E /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC32134154900E1026E /* DBProvider.swift */; };
 		83C1ABC62134162100E1026E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC52134162100E1026E /* Constants.swift */; };
+		83D417CE2135ED2B007651C6 /* UberHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D417CD2135ED2B007651C6 /* UberHandler.swift */; };
 		83EFE97B2133F5A40091E2F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */; };
 		83EFE9822133F5A60091E2F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EFE9812133F5A60091E2F9 /* Assets.xcassets */; };
 		83EFE9852133F5A60091E2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFE9832133F5A60091E2F9 /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		83C1ABC32134154900E1026E /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		83C1ABC52134162100E1026E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		83D417CD2135ED2B007651C6 /* UberHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberHandler.swift; sourceTree = "<group>"; };
 		83EFE9772133F5A40091E2F9 /* Uber App For Riderr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber App For Riderr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EFE9812133F5A60091E2F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				83EFE9952133F6520091E2F9 /* RoundedTextField.swift */,
 				83C1ABC32134154900E1026E /* DBProvider.swift */,
 				83C1ABC52134162100E1026E /* Constants.swift */,
+				83D417CD2135ED2B007651C6 /* UberHandler.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				83EFE97B2133F5A40091E2F9 /* AppDelegate.swift in Sources */,
 				83EFE9962133F6520091E2F9 /* RoundedTextField.swift in Sources */,
 				83C1ABC42134154900E1026E /* DBProvider.swift in Sources */,
+				83D417CE2135ED2B007651C6 /* UberHandler.swift in Sources */,
 				83EFE99A2133F6A60091E2F9 /* RiderVC.swift in Sources */,
 				83EFE9942133F62B0091E2F9 /* RoundedButtons.swift in Sources */,
 				83EFE9982133F6850091E2F9 /* SignInVC.swift in Sources */,

@@ -61,7 +61,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedButtons" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYa-WQ-jC3"/>
+                                    <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RId-Xv-eyo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6s-CX-WTk" customClass="RoundedButtons" customModule="Uber_App_For_Riderr" customModuleProvider="target">
@@ -76,15 +76,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedButtons" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FWl-kb-cE2"/>
+                                    <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zGf-8d-Xyc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="kNb-wR-DGM" id="yHd-lD-8zX"/>
-                        <outlet property="passwordTextField" destination="Yyb-GY-6nO" id="Bww-D4-0H3"/>
+                        <outlet property="emailtextField" destination="kNb-wR-DGM" id="Kxv-1e-p6d"/>
+                        <outlet property="passwordTextField" destination="Yyb-GY-6nO" id="4NC-9j-KcY"/>
                         <segue destination="0GU-i3-DQV" kind="show" identifier="RiderVC" id="Hpn-be-mgD"/>
                     </connections>
                 </viewController>
@@ -107,7 +107,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-MP-VVM" customClass="RoundedButtons" customModule="Uber_App_For_Rider">
                                 <rect key="frame" x="16" y="38" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Call" image="back">
+                                <state key="normal" title="Logout" image="back">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -134,6 +134,7 @@
                         <viewLayoutGuide key="safeArea" id="aLf-tu-Jmy"/>
                     </view>
                     <connections>
+                        <outlet property="callUberBtn" destination="qGQ-Ei-oWl" id="WUd-yn-RTH"/>
                         <outlet property="myMap" destination="gKh-Sr-Oqk" id="yh8-Wg-efi"/>
                     </connections>
                 </viewController>
