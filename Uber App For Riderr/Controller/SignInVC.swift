@@ -11,11 +11,10 @@ import UIKit
 class SignInVC: UIViewController {
     
     private let RIDER_SEGUE = "RiderVC"
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    //    @IBOutlet weak var emailTextField: UITextField!
-    //    @IBOutlet weak var passwordTextField: UITextField!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

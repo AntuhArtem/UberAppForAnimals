@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>331856800350-i5f2134ek510iqjjb3r8gkoeq5iq2hbq.apps.googleusercontent.com</string>
+	<string>632080605874-1hk4g0ojqe7vgnlm7f6s6dl8a4sq3g1e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.331856800350-i5f2134ek510iqjjb3r8gkoeq5iq2hbq</string>
+	<string>com.googleusercontent.apps.632080605874-1hk4g0ojqe7vgnlm7f6s6dl8a4sq3g1e</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAY6K4Z6dWZm5tUkgctmyLbtQ07-tknxpk</string>
+	<string>AIzaSyCiXK55Is6qeaJvkDKyPyeVijrSEZcP0Fc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>331856800350</string>
+	<string>632080605874</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>NON.Application.Uber-App-For-Rider</string>
+	<string>com.myCompany.Uber-App-For-Riderr</string>
 	<key>PROJECT_ID</key>
-	<string>animaluber</string>
+	<string>animalsuberapp</string>
 	<key>STORAGE_BUCKET</key>
-	<string>animaluber.appspot.com</string>
+	<string>animalsuberapp.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:331856800350:ios:f5e1332356dbbeb8</string>
+	<string>1:632080605874:ios:f45dec7bb3ab34ef</string>
 	<key>DATABASE_URL</key>
-	<string>https://animaluber.firebaseio.com</string>
+	<string>https://animalsuberapp.firebaseio.com</string>
 </dict>
 </plist>

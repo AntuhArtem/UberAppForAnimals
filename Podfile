@@ -7,6 +7,7 @@ target 'Uber App For Riderr' do
 
   # Pods for Uber App For Riderr
     pod 'Firebase'
+    pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
