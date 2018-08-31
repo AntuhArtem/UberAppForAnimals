@@ -17,7 +17,9 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
     
     private var locationManager = CLLocationManager()
     private var userLocation: CLLocationCoordinate2D?
-//    private var driverLocation: CLLocationCoordinate2D?
+    private var driverLocation: CLLocationCoordinate2D?
+    
+    private var timer = Timer()
     
     private var canCallUber = true
     private var riderCanceledRequest = false
@@ -48,12 +50,26 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             myMap.setRegion(region, animated: true)
             myMap.removeAnnotations(myMap.annotations)
             
+            if driverLocation != nil {
+                if !canCallUber {
+                    let driverAnnotation = MKPointAnnotation()
+                    driverAnnotation.coordinate = driverLocation!
+                    driverAnnotation.title = "Driver location"
+                    myMap.addAnnotation(driverAnnotation)
+                }
+            }
+            
             let annotation = MKPointAnnotation()
             annotation.coordinate = userLocation!
             annotation.title = "Drivers Loaction"
             myMap.addAnnotation(annotation)
         }
         
+    }
+    
+    @objc func updateRidersLocation() {
+        UberHandler.Instance.updateRiderLocation(lat: userLocation!.latitude,
+                                                 long: userLocation!.longitude)
     }
     
     func canCallUber(delegateCalled: Bool) {
@@ -77,25 +93,36 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             else
             {
                 UberHandler.Instance.cancelUber()
+                timer.invalidate()
                 alertTheUser(title: "Uber canceled", message: "\(driverName) cancel Uber request")
             }
         }
         riderCanceledRequest = false
     }
     
+    func updateDriversLocation(lat: Double, long: Double) {
+        driverLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+    }
+    
     
     @IBAction func callUber(_ sender: Any) {
-//        UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),
-//                                         longitude: Double(userLocation!.longitude))
         if userLocation != nil {
             if canCallUber {
                 UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),
                                                  longitude: Double(userLocation!.longitude))
+                
+                timer = Timer.scheduledTimer(timeInterval: 10,
+                                             target: self,
+                                             selector: #selector(RiderVC.updateRidersLocation),
+                                             userInfo: nil,
+                                             repeats: true)
+                
             }
             else
             {
                 riderCanceledRequest = true
-                
+                UberHandler.Instance.cancelUber()
+                timer.invalidate()
                 // cancel uber
             }
         }
@@ -104,7 +131,10 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
     
     @IBAction func logout(_ sender: Any) {
         if AuthProvider.Instance.logOut() {
-            dismiss(animated: true, completion: nil)
+            if !canCallUber {
+                UberHandler.Instance.cancelUber()
+                timer.invalidate()
+            }
         }
         else
         {
