@@ -69,6 +69,20 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
         }
     }
     
+    func driverAcceptedRequest(requestAccepted: Bool, driverName: String) {
+        if !riderCanceledRequest {
+            if requestAccepted {
+                alertTheUser(title: "Uber Accepted", message: "\(driverName) accepted your request")
+            }
+            else
+            {
+                UberHandler.Instance.cancelUber()
+                alertTheUser(title: "Uber canceled", message: "\(driverName) cancel Uber request")
+            }
+        }
+        riderCanceledRequest = false
+    }
+    
     
     @IBAction func callUber(_ sender: Any) {
 //        UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),

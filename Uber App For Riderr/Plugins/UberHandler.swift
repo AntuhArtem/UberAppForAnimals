@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 protocol UberController: class {
     func canCallUber(delegateCalled: Bool)
+    func driverAcceptedRequest(requestAccepted: Bool, driverName: String)
 }
 
 class UberHandler {
@@ -53,8 +54,32 @@ class UberHandler {
                 }
             }
         }
-    }
-    
+        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childAdded)
+        {(snapshot: DataSnapshot) in
+            if let data = snapshot.value as? NSDictionary {
+                if let name = data[Constants.NAME] as? String {
+                    if self.driver == "" {
+                        self.driver = name
+                        self.delegate?.driverAcceptedRequest(requestAccepted: true, driverName: self.driver)
+                    }
+                }
+            }
+        }
+        
+        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childRemoved) {(snapshot: DataSnapshot) in
+            
+            if let data = snapshot.value as? NSDictionary {
+                if let name = data[Constants.NAME] as? String {
+                    if name = self.driver {
+                        self.driver = ""
+                        self.delegate?.driverAcceptedRequest(requestAccepted: false, driverName: name)
+                    }
+                }
+            }
+            
+        }
+        
+}
     //request Uber
     func requestUber(latitude: Double,
                      longitude: Double) {

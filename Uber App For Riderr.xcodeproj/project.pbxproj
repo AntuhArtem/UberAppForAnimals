@@ -68,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				83EF297621386AFB005057CE /* GoogleService-Info.plist */,
+				83EFE9862133F5A60091E2F9 /* Info.plist */,
 				83EFE9792133F5A40091E2F9 /* Uber App For Riderr */,
 				83EFE9782133F5A40091E2F9 /* Products */,
 				9B8109145389EFFE7407C61D /* Pods */,
@@ -101,7 +102,6 @@
 				83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */,
 				83EFE9812133F5A60091E2F9 /* Assets.xcassets */,
 				83EFE9832133F5A60091E2F9 /* LaunchScreen.storyboard */,
-				83EFE9862133F5A60091E2F9 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -420,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BXA39294KR;
-				INFOPLIST_FILE = "$(SRCROOT)/Uber App For Riderr/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,7 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BXA39294KR;
-				INFOPLIST_FILE = "$(SRCROOT)/Uber App For Riderr/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

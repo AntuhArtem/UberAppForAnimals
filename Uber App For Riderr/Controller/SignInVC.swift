@@ -62,6 +62,13 @@ class SignInVC: UIViewController {
                                             }
                                             else
                                             {
+                                                
+                                                UberHandler.Instance.rider = self.emailTextField.text!
+                                                
+                                                //if we logout, our text fields must be empty
+                                                self.emailTextField.text! = ""
+                                                self.passwordTextField.text! = ""
+                                                
                                                 self.performSegue(withIdentifier: self.RIDER_SEGUE, sender: nil)
                                             }
             })
