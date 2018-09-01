@@ -11,8 +11,6 @@ import MapKit
 
 class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UberController {
     @IBOutlet weak var myMap: MKMapView!
-    
-    
     @IBOutlet weak var callUberBtn: UIButton!
     
     private var locationManager = CLLocationManager()
@@ -31,6 +29,7 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
         UberHandler.Instance.delegate = self
     }
     
+    
     private func initializeLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -40,11 +39,11 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         //if we have coordinates from the manager
         if let location = locationManager.location?.coordinate {
             
             userLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            
             //setting up navigation region
             let region = MKCoordinateRegion(center: userLocation!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             myMap.setRegion(region, animated: true)
@@ -58,19 +57,19 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
                     myMap.addAnnotation(driverAnnotation)
                 }
             }
-            
             let annotation = MKPointAnnotation()
             annotation.coordinate = userLocation!
             annotation.title = "Drivers Loaction"
             myMap.addAnnotation(annotation)
         }
-        
     }
+    
     
     @objc func updateRidersLocation() {
         UberHandler.Instance.updateRiderLocation(lat: userLocation!.latitude,
                                                  long: userLocation!.longitude)
     }
+    
     
     func canCallUber(delegateCalled: Bool) {
         if delegateCalled {
@@ -84,6 +83,7 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             UberHandler.Instance.cancelUber()
         }
     }
+    
     
     func driverAcceptedRequest(requestAccepted: Bool, driverName: String) {
         if !riderCanceledRequest {
@@ -110,13 +110,11 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             if canCallUber {
                 UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),
                                                  longitude: Double(userLocation!.longitude))
-                
                 timer = Timer.scheduledTimer(timeInterval: 10,
                                              target: self,
                                              selector: #selector(RiderVC.updateRidersLocation),
                                              userInfo: nil,
                                              repeats: true)
-                
             }
             else
             {
@@ -135,6 +133,7 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
                 UberHandler.Instance.cancelUber()
                 timer.invalidate()
             }
+            dismiss(animated: true, completion: nil)
         }
         else
         {
@@ -143,11 +142,11 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
         }
     }
     
+    
     private func alertTheUser(title: String, message: String) {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert);
-        
         let ok = UIAlertAction(title: "OK",
                                style: .default,
                                handler: nil);

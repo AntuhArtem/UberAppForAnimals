@@ -64,6 +64,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		83E72CA62139A33400D83F68 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				83EFE9932133F62B0091E2F9 /* RoundedButtons.swift */,
+				83EFE9952133F6520091E2F9 /* RoundedTextField.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		83E72CA72139A34B00D83F68 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				83C1ABC52134162100E1026E /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		83E72CA82139A35700D83F68 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				83EFE9912133F6090091E2F9 /* AuthProvider.swift */,
+				83C1ABC32134154900E1026E /* DBProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		83E72CA92139A36D00D83F68 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				83D417CD2135ED2B007651C6 /* UberHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
 		83EFE96E2133F5A40091E2F9 = {
 			isa = PBXGroup;
 			children = (
@@ -109,12 +143,10 @@
 		83EFE98D2133F5BF0091E2F9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				83EFE9912133F6090091E2F9 /* AuthProvider.swift */,
-				83EFE9932133F62B0091E2F9 /* RoundedButtons.swift */,
-				83EFE9952133F6520091E2F9 /* RoundedTextField.swift */,
-				83C1ABC32134154900E1026E /* DBProvider.swift */,
-				83C1ABC52134162100E1026E /* Constants.swift */,
-				83D417CD2135ED2B007651C6 /* UberHandler.swift */,
+				83E72CA82139A35700D83F68 /* Providers */,
+				83E72CA62139A33400D83F68 /* Design */,
+				83E72CA72139A34B00D83F68 /* Constants */,
+				83E72CA92139A36D00D83F68 /* Handlers */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";

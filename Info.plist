@@ -20,7 +20,7 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>Privacy - Location When In Usage Description</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need to know your location in order to sent the Uber</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
