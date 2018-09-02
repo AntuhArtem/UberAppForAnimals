@@ -22,6 +22,12 @@ class SignInVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func backToLaunchScreen(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func signUp(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != "" {
             

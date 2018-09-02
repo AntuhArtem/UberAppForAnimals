@@ -12,6 +12,7 @@ class Constants {
     
     //DBProvider
     static let RIDERS = "riders"
+    static let DRIVERS = "drivers"
     static let EMAIL = "email"
     static let PASSWORD = "password"
     static let DATA = "data"

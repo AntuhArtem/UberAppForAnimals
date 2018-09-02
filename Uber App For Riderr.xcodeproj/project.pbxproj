@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		83C1ABC42134154900E1026E /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC32134154900E1026E /* DBProvider.swift */; };
 		83C1ABC62134162100E1026E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC52134162100E1026E /* Constants.swift */; };
+		83CAF4AD213C8233004563DC /* DriverSignInVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF4AC213C8233004563DC /* DriverSignInVc.swift */; };
+		83CAF4AF213C824E004563DC /* DriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF4AE213C824E004563DC /* DriverVC.swift */; };
 		83D417CE2135ED2B007651C6 /* UberHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D417CD2135ED2B007651C6 /* UberHandler.swift */; };
 		83EF297721386AFB005057CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EF297621386AFB005057CE /* GoogleService-Info.plist */; };
 		83EFE97B2133F5A40091E2F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		83C1ABC32134154900E1026E /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		83C1ABC52134162100E1026E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		83CAF4AC213C8233004563DC /* DriverSignInVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSignInVc.swift; sourceTree = "<group>"; };
+		83CAF4AE213C824E004563DC /* DriverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverVC.swift; sourceTree = "<group>"; };
 		83D417CD2135ED2B007651C6 /* UberHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberHandler.swift; sourceTree = "<group>"; };
 		83EF297621386AFB005057CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83EFE9772133F5A40091E2F9 /* Uber App For Riderr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber App For Riderr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +128,6 @@
 				83EFE98D2133F5BF0091E2F9 /* Plugins */,
 				83EFE9902133F5D10091E2F9 /* Controller */,
 				83EFE98F2133F5CD0091E2F9 /* View */,
-				83EFE98E2133F5C70091E2F9 /* Model */,
 				83EFE98C2133F5B50091E2F9 /* Supporting Files */,
 			);
 			path = "Uber App For Riderr";
@@ -151,13 +154,6 @@
 			path = Plugins;
 			sourceTree = "<group>";
 		};
-		83EFE98E2133F5C70091E2F9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		83EFE98F2133F5CD0091E2F9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +167,8 @@
 			children = (
 				83EFE9972133F6850091E2F9 /* SignInVC.swift */,
 				83EFE9992133F6A60091E2F9 /* RiderVC.swift */,
+				83CAF4AC213C8233004563DC /* DriverSignInVc.swift */,
+				83CAF4AE213C824E004563DC /* DriverVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,11 +307,13 @@
 				83EFE97B2133F5A40091E2F9 /* AppDelegate.swift in Sources */,
 				83EFE9962133F6520091E2F9 /* RoundedTextField.swift in Sources */,
 				83C1ABC42134154900E1026E /* DBProvider.swift in Sources */,
+				83CAF4AD213C8233004563DC /* DriverSignInVc.swift in Sources */,
 				83D417CE2135ED2B007651C6 /* UberHandler.swift in Sources */,
 				83EFE99A2133F6A60091E2F9 /* RiderVC.swift in Sources */,
 				83EFE9942133F62B0091E2F9 /* RoundedButtons.swift in Sources */,
 				83EFE9982133F6850091E2F9 /* SignInVC.swift in Sources */,
 				83C1ABC62134162100E1026E /* Constants.swift in Sources */,
+				83CAF4AF213C824E004563DC /* DriverVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

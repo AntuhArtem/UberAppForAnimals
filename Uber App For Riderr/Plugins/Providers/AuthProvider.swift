@@ -72,7 +72,7 @@ class AuthProvider {
             }
             
         })
-        
+
     }
     
     
@@ -89,6 +89,7 @@ class AuthProvider {
         }
         return true
     }
+    
     
     private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
         

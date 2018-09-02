@@ -10,6 +10,24 @@ import UIKit
 import MapKit
 
 class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UberController {
+    func acceptUber(lat: Double, long: Double) {
+    }
+    
+    func riderCanceledUber() {
+    }
+    
+    func uberCanceled() {
+    }
+    
+    func updateRidersLocation(lat: Double, long: Double) {
+    }
+    
+    func cancelUberForDriver() {
+    }
+    
+    func uberAccepted(lat: Double, long: Double) {
+    }
+    
     @IBOutlet weak var myMap: MKMapView!
     @IBOutlet weak var callUberBtn: UIButton!
     
@@ -105,16 +123,16 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
     }
     
     
-    @IBAction func callUber(_ sender: Any) {
+    @IBAction func callUber(_ sender: UIButton) {
         if userLocation != nil {
             if canCallUber {
                 UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),
                                                  longitude: Double(userLocation!.longitude))
-                timer = Timer.scheduledTimer(timeInterval: 10,
-                                             target: self,
-                                             selector: #selector(RiderVC.updateRidersLocation),
-                                             userInfo: nil,
-                                             repeats: true)
+//                timer = Timer.scheduledTimer(timeInterval: 10,
+//                                             target: self,
+//                                             selector: #selector(RiderVC.updateRidersLocation),
+//                                             userInfo: nil,
+//                                             repeats: true)
             }
             else
             {

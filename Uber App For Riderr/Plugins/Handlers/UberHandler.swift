@@ -13,6 +13,12 @@ protocol UberController: class {
     func canCallUber(delegateCalled: Bool)
     func driverAcceptedRequest(requestAccepted: Bool, driverName: String)
     func updateDriversLocation(lat: Double, long: Double)
+    func acceptUber(lat: Double, long: Double)
+    func riderCanceledUber()
+    func uberCanceled()
+    func updateRidersLocation(lat: Double, long: Double)
+    func cancelUberForDriver()
+    func uberAccepted(lat: Double, long: Double)
 }
 
 class UberHandler {
@@ -23,6 +29,7 @@ class UberHandler {
     var rider = ""
     var driver = ""
     var rider_id = ""
+    var driver_id = ""
     
     static var Instance: UberHandler {
         return _instance
@@ -49,13 +56,13 @@ class UberHandler {
             if let data = snapshot.value as? NSDictionary {
                 if let name = data[Constants.NAME] as? String {
                     if name == self.rider {
-//                        self.rider_id = snapshot.key
+                        //                        self.rider_id = snapshot.key
                         self.delegate?.canCallUber(delegateCalled: false)
                     }
                 }
             }
         }
-        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childAdded)
+        DBProvider.Instance.requestAcceptedref.observe(DataEventType.childAdded)
         {(snapshot: DataSnapshot) in
             if let data = snapshot.value as? NSDictionary {
                 if let name = data[Constants.NAME] as? String {
@@ -67,7 +74,7 @@ class UberHandler {
             }
         }
         
-        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childRemoved) {(snapshot: DataSnapshot) in
+        DBProvider.Instance.requestAcceptedref.observe(DataEventType.childRemoved) {(snapshot: DataSnapshot) in
             
             if let data = snapshot.value as? NSDictionary {
                 if let name = data[Constants.NAME] as? String {
@@ -80,7 +87,7 @@ class UberHandler {
             
         }
         //driver updating location
-        DBProvider.Instance.requestAcceptedRef.observe(DataEventType.childChanged){(snapshot: DataSnapshot) in
+        DBProvider.Instance.requestAcceptedref.observe(DataEventType.childChanged){(snapshot: DataSnapshot) in
             
             if let data = snapshot.value as? NSDictionary {
                 if let name = data[Constants.NAME] as? String {
@@ -95,7 +102,80 @@ class UberHandler {
             }
             
         }
-}
+    }
+    
+    
+    func observeMessagesForDriver() {
+        // rider requested uber
+        DBProvider.Instance.requestRef.observe(DataEventType.childAdded) {(snapshot: DataSnapshot) in
+            if let data = snapshot.value as? NSDictionary {
+                if let latitude = data[Constants.LATITUDE] as? Double {
+                    if let longitude = data[Constants.LONGITUDE] as? Double {
+                        
+                        //inform driver about request
+                        self.delegate?.acceptUber(lat: latitude,
+                                                  long: longitude)
+                    }
+                }
+                if let name = data[Constants.NAME] as? String {
+                    self.rider = name
+                }
+            }
+            
+            
+            //rider canceled uber
+            DBProvider.Instance.requestRef.observe(DataEventType.childRemoved) {(DataSnapshot) in
+                if let data = snapshot.value as? NSDictionary {
+                    if let name = data[Constants.NAME] as? String {
+                        if name == self.rider {
+                            self.rider =  ""
+                            self.delegate?.riderCanceledUber()
+                        }
+                    }
+                }
+            }
+            
+            
+            //rider updating location
+            DBProvider.Instance.requestRef.observe(DataEventType.childChanged) { (snapshot: DataSnapshot) in
+                if let data = snapshot.value as? NSDictionary {
+                    if let lat = data[Constants.LATITUDE] as? Double {
+                        if let long = data[Constants.LONGITUDE] as? Double {
+                            self.delegate?.updateRidersLocation(lat: lat, long: long)
+                        }
+                    }
+                }
+            }
+            
+            
+            //driver accepts uber
+            DBProvider.Instance.requestAcceptedref.observe(DataEventType.childAdded) { (DataSnapshot) in
+                
+                if let data = snapshot.value as? NSDictionary {
+                    if let name = data[Constants.NAME] as? String {
+                        if name == self.driver {
+                            self.driver_id = snapshot.key
+                        }
+                    }
+                }
+            }
+            
+            
+            //driver canceled uber
+            DBProvider.Instance.requestRef.observe(DataEventType.childRemoved) { (snapshot: DataSnapshot) in
+                
+                if let data = snapshot.value as? NSDictionary {
+                    if let name = data[Constants.NAME] as? String {
+                        if name == self.driver {
+                            self.delegate?.uberCanceled()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
     //request Uber
     func requestUber(latitude: Double,
                      longitude: Double) {
@@ -115,4 +195,23 @@ class UberHandler {
         
     }
     
+    
+    //observe messages
+    func uberAccepted(lat: Double, long: Double) {
+        let data: Dictionary<String, Any> = [Constants.NAME : driver,
+                                             Constants.LATITUDE: lat,
+                                             Constants.LONGITUDE: long]
+        DBProvider.Instance.requestAcceptedref.childByAutoId().setValue(data)
+    }
+    
+    
+    func cancelUberForDriver() {
+        DBProvider.Instance.requestAcceptedref.child(driver_id).removeValue()
+    }
+    
+    
+    func updateDriverLocation(lat: Double, long: Double) {
+        DBProvider.Instance.requestAcceptedref.child(driver_id).updateChildValues([Constants.LATITUDE: lat,
+                                                                                   Constants.LONGITUDE: long])
+    }
 }

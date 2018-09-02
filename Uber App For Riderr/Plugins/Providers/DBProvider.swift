@@ -29,7 +29,7 @@ class DBProvider {
         return dbRef.child(Constants.UBER_REQUEST)
     }
     
-    var requestAcceptedRef: DatabaseReference {
+    var requestAcceptedref: DatabaseReference {
         return dbRef.child(Constants.UBER_ACCEPTED)
     }
     
