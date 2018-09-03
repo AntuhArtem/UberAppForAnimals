@@ -77,7 +77,7 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             }
             let annotation = MKPointAnnotation()
             annotation.coordinate = userLocation!
-            annotation.title = "Drivers Loaction"
+            annotation.title = "Drivers Locaction"
             myMap.addAnnotation(annotation)
         }
     }
@@ -128,11 +128,11 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
             if canCallUber {
                 UberHandler.Instance.requestUber(latitude: Double(userLocation!.latitude),
                                                  longitude: Double(userLocation!.longitude))
-//                timer = Timer.scheduledTimer(timeInterval: 10,
-//                                             target: self,
-//                                             selector: #selector(RiderVC.updateRidersLocation),
-//                                             userInfo: nil,
-//                                             repeats: true)
+                //                timer = Timer.scheduledTimer(timeInterval: 10,
+                //                                             target: self,
+                //                                             selector: #selector(RiderVC.updateRidersLocation),
+                //                                             userInfo: nil,
+                //                                             repeats: true)
             }
             else
             {

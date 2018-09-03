@@ -315,7 +315,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedButtons" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="callUber:" destination="0GU-i3-DQV" eventType="touchUpInside" id="A7z-25-4Pl"/>
+                                    <action selector="callUber:" destination="0GU-i3-DQV" eventType="touchUpInside" id="ITK-Cb-Nmi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -338,7 +338,6 @@
                         <viewLayoutGuide key="safeArea" id="aLf-tu-Jmy"/>
                     </view>
                     <connections>
-                        <outlet property="callUberBtn" destination="qGQ-Ei-oWl" id="WUd-yn-RTH"/>
                         <outlet property="myMap" destination="gKh-Sr-Oqk" id="yh8-Wg-efi"/>
                     </connections>
                 </viewController>

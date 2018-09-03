@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833563B4213C9B6F00816EF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833563B3213C9B6F00816EF2 /* GoogleService-Info.plist */; };
 		83C1ABC42134154900E1026E /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC32134154900E1026E /* DBProvider.swift */; };
 		83C1ABC62134162100E1026E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1ABC52134162100E1026E /* Constants.swift */; };
 		83CAF4AD213C8233004563DC /* DriverSignInVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF4AC213C8233004563DC /* DriverSignInVc.swift */; };
 		83CAF4AF213C824E004563DC /* DriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAF4AE213C824E004563DC /* DriverVC.swift */; };
 		83D417CE2135ED2B007651C6 /* UberHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D417CD2135ED2B007651C6 /* UberHandler.swift */; };
-		83EF297721386AFB005057CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83EF297621386AFB005057CE /* GoogleService-Info.plist */; };
 		83EFE97B2133F5A40091E2F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */; };
 		83EFE9822133F5A60091E2F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EFE9812133F5A60091E2F9 /* Assets.xcassets */; };
 		83EFE9852133F5A60091E2F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EFE9832133F5A60091E2F9 /* LaunchScreen.storyboard */; };
@@ -26,12 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		833563B3213C9B6F00816EF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83C1ABC32134154900E1026E /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		83C1ABC52134162100E1026E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		83CAF4AC213C8233004563DC /* DriverSignInVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSignInVc.swift; sourceTree = "<group>"; };
 		83CAF4AE213C824E004563DC /* DriverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverVC.swift; sourceTree = "<group>"; };
 		83D417CD2135ED2B007651C6 /* UberHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberHandler.swift; sourceTree = "<group>"; };
-		83EF297621386AFB005057CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83EFE9772133F5A40091E2F9 /* Uber App For Riderr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uber App For Riderr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EFE97A2133F5A40091E2F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EFE9812133F5A60091E2F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		83EFE96E2133F5A40091E2F9 = {
 			isa = PBXGroup;
 			children = (
-				83EF297621386AFB005057CE /* GoogleService-Info.plist */,
+				833563B3213C9B6F00816EF2 /* GoogleService-Info.plist */,
 				83EFE9862133F5A60091E2F9 /* Info.plist */,
 				83EFE9792133F5A40091E2F9 /* Uber App For Riderr */,
 				83EFE9782133F5A40091E2F9 /* Products */,
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83EFE9852133F5A60091E2F9 /* LaunchScreen.storyboard in Resources */,
-				83EF297721386AFB005057CE /* GoogleService-Info.plist in Resources */,
+				833563B4213C9B6F00816EF2 /* GoogleService-Info.plist in Resources */,
 				83EFE99E2133F7350091E2F9 /* Main.storyboard in Resources */,
 				83EFE9822133F5A60091E2F9 /* Assets.xcassets in Resources */,
 			);

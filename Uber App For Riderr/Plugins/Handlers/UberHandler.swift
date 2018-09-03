@@ -35,6 +35,26 @@ class UberHandler {
         return _instance
     }
     
+    
+    func uberAccepted(lat: Double, long: Double) {
+        let data: Dictionary<String, Any> = [Constants.NAME : driver,
+                                             Constants.LATITUDE: lat,
+                                             Constants.LONGITUDE: long]
+        DBProvider.Instance.requestAcceptedref.childByAutoId().setValue(data)
+    }
+    
+    
+    func cancelUberForDriver() {
+        DBProvider.Instance.requestAcceptedref.child(driver_id).removeValue()
+    }
+    
+    
+    func updateDriverLocation(lat: Double, long: Double) {
+        DBProvider.Instance.requestAcceptedref.child(driver_id).updateChildValues([Constants.LATITUDE: lat,
+                                                                                   Constants.LONGITUDE: long])
+    }
+    
+    
     func observeMessagesForRider() {
         
         //rider requested Uber
@@ -62,6 +82,7 @@ class UberHandler {
                 }
             }
         }
+        
         DBProvider.Instance.requestAcceptedref.observe(DataEventType.childAdded)
         {(snapshot: DataSnapshot) in
             if let data = snapshot.value as? NSDictionary {
@@ -86,6 +107,7 @@ class UberHandler {
             }
             
         }
+        
         //driver updating location
         DBProvider.Instance.requestAcceptedref.observe(DataEventType.childChanged){(snapshot: DataSnapshot) in
             
@@ -147,7 +169,6 @@ class UberHandler {
                 }
             }
             
-            
             //driver accepts uber
             DBProvider.Instance.requestAcceptedref.observe(DataEventType.childAdded) { (DataSnapshot) in
                 
@@ -159,7 +180,8 @@ class UberHandler {
                     }
                 }
             }
-            
+            //observe messages
+           
             
             //driver canceled uber
             DBProvider.Instance.requestRef.observe(DataEventType.childRemoved) { (snapshot: DataSnapshot) in
@@ -196,22 +218,5 @@ class UberHandler {
     }
     
     
-    //observe messages
-    func uberAccepted(lat: Double, long: Double) {
-        let data: Dictionary<String, Any> = [Constants.NAME : driver,
-                                             Constants.LATITUDE: lat,
-                                             Constants.LONGITUDE: long]
-        DBProvider.Instance.requestAcceptedref.childByAutoId().setValue(data)
-    }
     
-    
-    func cancelUberForDriver() {
-        DBProvider.Instance.requestAcceptedref.child(driver_id).removeValue()
-    }
-    
-    
-    func updateDriverLocation(lat: Double, long: Double) {
-        DBProvider.Instance.requestAcceptedref.child(driver_id).updateChildValues([Constants.LATITUDE: lat,
-                                                                                   Constants.LONGITUDE: long])
-    }
 }

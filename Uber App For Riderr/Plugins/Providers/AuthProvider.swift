@@ -60,7 +60,6 @@ class AuthProvider {
             else
             {
                 if user?.user.uid != nil {
-                    
                     // store user to DB
                     DBProvider.Instance.saveUser(withID: user!.user.uid,
                                                  email: withEmail,
@@ -70,9 +69,7 @@ class AuthProvider {
                     
                 }
             }
-            
         })
-
     }
     
     
@@ -100,29 +97,23 @@ class AuthProvider {
             case .wrongPassword:
                 loginHandler?(LoginnErrorCode.WRONG_PASSWORD);
                 break;
-                
             case .invalidEmail:
                 loginHandler?(LoginnErrorCode.INVALID_EMAIL);
                 break;
-                
             case .userNotFound:
                 loginHandler?(LoginnErrorCode.USER_NOT_FOUND);
                 break;
-                
             case .emailAlreadyInUse:
                 loginHandler?(LoginnErrorCode.EMAIL_ALREADY_IN_USE);
                 break;
-                
             case .weakPassword:
                 loginHandler?(LoginnErrorCode.WEAK_PASSWORD);
                 break;
-                
             default :
                 loginHandler?(LoginnErrorCode.PROBLEM_CONNECTING);
                 break;
             }
         }
-        
     }
 }
 
